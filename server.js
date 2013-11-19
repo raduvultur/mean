@@ -13,7 +13,7 @@ var express = require('express'),
 
 //Load configurations
 //if test env, load example file
-var env = process.env.NODE_ENV = 'openshift',
+var env = process.env.NODE_ENV = 'test',
     config = require('./config/config'),
     auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
@@ -50,10 +50,12 @@ require('./config/express')(app, passport, db);
 require('./config/routes')(app, passport, auth);
 
 //Start the app by listening on <port,ip>
-var port = process.env.PORT || config.port;
-var ip = process.env.IP || config.ip;
-app.listen(port, ip);
-console.log('Express app started on port ' + port);
+//var port = process.env.PORT || config.port;
+//var ip = process.env.IP || config.ip;
+//app.listen(port);
+app.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,
+           process.env.OPENSHIFT_NODEJS_IP);
+//console.log('Express app started on port ' + port);
 
 //Initializing logger
 logger.init(app, passport, mongoose);
