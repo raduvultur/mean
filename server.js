@@ -19,7 +19,7 @@ var env = process.env.NODE_ENV = 'test',
     mongoose = require('mongoose');
 
 //Bootstrap db connection
-var db = mongoose.connect(config.db);
+var db = mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL);
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
