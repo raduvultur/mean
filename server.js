@@ -13,7 +13,7 @@ var express = require('express'),
 
 //Load configurations
 //if test env, load example file
-var env = process.env.NODE_ENV = 'test',
+var env = process.env.NODE_ENV = 'openshift',
     config = require('./config/config'),
     auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
