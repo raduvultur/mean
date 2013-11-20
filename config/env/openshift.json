@@ -1,6 +1,4 @@
 {
-    "db": process.env.OPENSHIFT_MONGODB_DB_URL,
-    "port": process.env.OPENSHIFT_NODEJS_PORT,
     "app": {
         "name": "IKnow5 - MEAN"
     },
